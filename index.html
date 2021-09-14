@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chausar War</title>
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet"> 
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+</head>
+<body>
+    <div class="container">
+        <h1>THE CHAUSAR WAR</h1>
+
+        <div class="box">
+            <div class="dice">
+                <img src = "bilua.png" height = "400px" width = "300px">
+            </div>
+            <div class="dice">
+                <p>Bilua Mamu</p>
+                <img src = "dice1.png" id="check1" height = "200px" width = "200px">
+            </div>
+            <div class = "dice vs">
+                <p>V/S</p>
+            </div>
+            <div class="dice">
+                <p>Thekua Raja</p>
+                <img src = "dice6.png" id="check2" height = "200px" width = "200px">
+            </div>
+            <div class="dice">
+                <img src = "thekua.png" height = "400px" width = "300px">
+            </div>
+        </div>
+        
+        <div class="bottom">
+            <div class = "bot">
+                <input type = "text" name="" id="result1" class="text-center " value = "0">
+                
+            </div>
+            <div class = "bot">
+                <button onclick="change()">Roll The Dice</button>
+            </div>
+            <div class = "bot">
+                <input type = "text" name="" id="result2" class="text-center " value = "0">
+            </div>
+        </div>
+        
+
+    </div>
+
+    
+    <script>
+       change = () => {
+       const play1 = Math.floor(Math.random()*6) + 1;
+       const play1dice = `dice${play1}.png`;
+       document.getElementById('check1').setAttribute('src', play1dice);
+
+       const play2 = Math.floor(Math.random()*6) + 1;
+       const play2dice = `dice${play2}.png`;
+       document.getElementById('check2').setAttribute('src', play2dice);
+
+        
+
+       if(play1>play2)
+       {
+           document.querySelector('h1').innerHTML = "Bilua Mamu Won";
+
+           update1();
+           
+       }
+       else if(play1<play2)
+       {
+           document.querySelector('h1').innerHTML = "Thekua Raja Won";
+           
+           update2();
+       }
+       else 
+       {
+           document.querySelector('h1').innerHTML = "Game is Draw";
+       }
+
+       function update1()
+       {
+           result1.value++;
+           result1.innerHTML = result1.value;
+       }
+
+       function update2()
+       {
+           result2.value++;
+           result2.innerHTML = result2.value;
+       }
+       }
+
+       
+
+       
+    </script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" ></script> -->
+</body>
+</html>
